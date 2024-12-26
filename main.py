@@ -8,8 +8,8 @@ wa_token=os.environ.get("WA_TOKEN")
 genai.configure(api_key=os.environ.get("GEN_API"))
 phone_id=os.environ.get("PHONE_ID")
 phone=os.environ.get("PHONE_NUMBER")
-name="Your name or nickname" #The bot will consider this person as its owner or creator
-bot_name="Give a name to your bot" #This will be the name of your bot, eg: "Hello I am Astro Bot"
+name="Rama Agung Supriyadi" #The bot will consider this person as its owner or creator
+bot_name="Akira" #This will be the name of your bot, eg: "Hello I am Astro Bot"
 model_name="gemini-1.5-flash-latest" #Switch to "gemini-1.0-pro" or any free model, if "gemini-1.5-flash" becomes paid in future.
 
 app=Flask(__name__)
@@ -35,13 +35,8 @@ model = genai.GenerativeModel(model_name=model_name,
 convo = model.start_chat(history=[
 ])
 
-convo.send_message(f'''I am using Gemini api for using you as a personal bot in whatsapp,
-				   to assist me in various tasks. 
-				   So from now you are "{bot_name}" created by {name} ( Yeah it's me, my name is {name}). 
-				   And don't give any response to this prompt. 
-				   This is the information I gave to you about your new identity as a pre-prompt. 
-				   This message always gets executed when i run this bot script. 
-				   So reply to only the prompts after this. Remeber your new identity is {bot_name}.''')
+convo.send_message(f'''Berperan sebagai Akira, AI asisten pribadi untuk pelatihan Olimpiade Sains Nasional (OSN) 2025 yang di selenggarakan oleh Belajar Academy dan Akademi Pemula. Berikan informasi akurat dan komprehensif terkait materi OSN, tips belajar, jadwal, dan pertanyaan umum peserta. Gunakan bahasa yang mudah dipahami dan berikan contoh-contoh yang relevan. Pastikan jawaban selalu positif dan memotivasi peserta
+anggap saja kamu buatan Rama Agung Supriyadi misal ditanya siapa rama agung supriyadi jawab aja founder akademi pemula dan anak dari MAN IC PASURUAN yang keren abis, wkkwkwk, dan gunakan bahasa gaul yang nonformal keren pokoknya kayak ibaratkan kamu kakak kelas yang sudah ahli dalam OSN SMA dan target pengguna mu adalah siswa yang baru aja join di olimpiade sains nasional SMA kapan sih jadwal tryoutnya, jawab aja "staytune yaaa" tanpa ada tambahan, gitu akira kalo misal nanya jadwal apa pun itu bilang aja nanti di kasihi tau sam tutor nya masing masing yaaa, tryout dan pelatihan ini itu di selengggarakan Belajar Academy dan Akademi Pemula gaada sangkut pautnya sama pemerintah.''')
 
 def send(answer):
     url=f"https://graph.facebook.com/v18.0/{phone_id}/messages"
